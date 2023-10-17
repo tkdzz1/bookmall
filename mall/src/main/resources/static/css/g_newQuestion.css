@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+.container {
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+     margin-top: 50px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    text-align: center;
+    color: #007bff;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+textarea {
+    height: 150px;
+    resize: none;
+}
+
+/* 버튼 스타일 */
+.form-buttons {
+    text-align: center;
+}
+
+.action-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.action-button.close {
+    background-color: #ccc;
+}
+
+.action-button:hover {
+    background-color: #0056b3;
+}
+
+/* 입력 필드 읽기 전용 스타일 */
+input[readonly]{
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+}
+
+    
+/* 라디오 버튼 컨테이너 스타일 */
+.radio-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* 화면 오른쪽 정렬 */
+}
+
+/* 레이블 스타일 */
+label {
+    margin-right: 10px;
+}
+/* 라디오 버튼 레이블 텍스트 색상 (선택사항) */
+input[type="radio"] + label {
+    color: #333;
+}
+

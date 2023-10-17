@@ -1,0 +1,196 @@
+@charset "UTF-8";
+body{
+	 background-color: aliceblue;
+	 font-family: "Roboto", "Noto Sans KR", "PingFang SC", "Apple SD Gothic Neo", "Microsoft YaHei UI", "Malgun Gothic", sans-serif;
+}
+.main {
+    max-width: 100%;
+    position: relative;
+    margin: auto;    
+}
+
+.slide {
+    display: none;
+	float: right;
+}
+
+.slideImg {
+    width: 100%;
+	height:auto;
+	float: right;
+	margin-top: 130px;
+}
+
+.fade {
+    animation: fade 3s linear infinite;
+}
+
+@keyframes fade {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+.title{
+	font-family: "Roboto", "Noto Sans KR", "PingFang SC", "Apple SD Gothic Neo", "Microsoft YaHei UI", "Malgun Gothic", sans-serif;
+    list-style: none;
+    pointer-events: none;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    max-width: 750px;
+    margin-top: 50px;
+    margin-left: 64px;
+    font-size: 38px;
+    line-height: 55px;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+    position: absolute;
+    top: 40%;
+    left: 15%;
+}
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 360px;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0); /* 배경색 추가 */
+}
+
+.prev{
+	left : 16%;
+}
+.next {
+    right: 1%;
+    border-radius: 3px 0 0 3px;
+}
+
+/* 호버 효과 (선택사항) */
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.contents_inner{
+	font-size: 14px;
+    line-height: 1.4;
+    font-family: "Roboto", "Noto Sans KR", "PingFang SC", "Apple SD Gothic Neo", "Microsoft YaHei UI", "Malgun Gothic", sans-serif;
+    color: #000;
+    width: 1200px;
+    margin: 0 auto;
+}
+.welcome_marketing_wrap{
+    margin: 70px 0;
+}
+.contents_inner{
+    font-size: 14px;
+    line-height: 1.4;
+    font-family: "Roboto", "Noto Sans KR", "PingFang SC", "Apple SD Gothic Neo", "Microsoft YaHei UI", "Malgun Gothic", sans-serif;
+    color: #000;
+    width: 1200px;
+    margin: 0 auto;
+}
+.welcome_marketing_wrap{
+    font-size: 14px;
+    line-height: 1.4;
+    font-family: "Roboto", "Noto Sans KR", "PingFang SC", "Apple SD Gothic Neo", "Microsoft YaHei UI", "Malgun Gothic", sans-serif;
+    color: #000;
+    margin: 70px 0;
+}
+.welcome_marketing_list{
+    font-size: 14px;
+    line-height: 1.4;
+    font-family: "Roboto", "Noto Sans KR", "PingFang SC", "Apple SD Gothic Neo", "Microsoft YaHei UI", "Malgun Gothic", sans-serif;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: -webkit-flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+}
+.hot{
+	position:absolute; 
+	margin-top:700px; 
+	margin-left: 15%;
+}
+.prod_area{
+	float:left;
+	margin-right:50px;
+}
+.prod_category{
+	font-size: 13px;
+}
+.prod_name{
+	font-size:16px;
+}
+.prod_author{
+	font-size: 13px;
+}
+.bestSeller{
+	position:absolute; 
+	margin-top:1350px; 
+	margin-left: 15%;	
+}
+a {
+    text-decoration: none; /* 밑줄 제거 */
+    color: inherit; /* 부모 요소의 색상 상속 */
+    cursor: pointer; /* 마우스 커서 모양 변경 (선택사항) */
+}
+.top-button {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #007BFF;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 24px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.top-button:hover {
+    background-color: #0056b3;
+}
+.new{
+	
+	position:absolute; 
+	margin-top:2000px; 
+	margin-left: 15%;	
+}
+
+.bigBanner{
+	position: absolute;
+	margin-top: 60px;
+	right: 15%;
+	background-color:white;
+	border-top-left-radius: 10%;
+	padding-bottom: 20px;
+	border-bottom-left-radius: 10%;
+	border-bottom-right-radius: 10%;
+}
+.bigBannerImg{
+	border-top-left-radius: 10%;
+}
+.bigBanner span{
+	margin-left:20px;
+}

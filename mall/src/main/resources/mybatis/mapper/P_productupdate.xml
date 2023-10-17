@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.himedia.springboot.P_productupdateDAO">
+<update id="productupdateMimg">
+	UPDATE product SET img=#{param2} WHERE seq=#{param1}
+</update>
+<update id="productupdateSimg">
+	UPDATE product SET prodinfo=#{param2} WHERE seq=#{param1}
+</update>
+<update id="productupdate">
+    UPDATE product SET name=#{param2}, genre=#{param3}, author=#{param4}, price=#{param5}, info=#{param6}, stock=#{param7}, editorreview=#{param8} WHERE seq=#{param1}
+</update>
+
+</mapper>

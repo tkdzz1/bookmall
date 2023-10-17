@@ -1,0 +1,192 @@
+/*body {
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.links a {
+  margin-right: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #007bff;
+}
+
+#korBook {
+  table-layout: fixed;
+  width:100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#korBook th,
+#korBook td {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+#korBook th {
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+
+#korBook tbody tr:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+.select-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#optSort {
+  margin-right: 10px;
+  padding: 5px;
+  width: 5%;  원하는 크기로 조정 
+  float: right;
+}
+
+.form-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.form-button:hover {
+  background-color: #0056b3;
+}
+
+.categories {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.categories a {
+  text-decoration: none;
+  color: black;
+  padding: 0 10px;
+  font-weight: bold;
+}
+
+.categories a:hover {
+  text-decoration: underline;
+}
+
+.table-container {
+  max-width: 100%px;
+  margin: 0 auto;
+  max-height: 800px;
+  overflow-y: auto;
+}
+    #korBook th:nth-child(1),
+    #korBook td:nth-child(1),
+    #korBook th:nth-child(2),
+    #korBook td:nth-child(2),
+    #korBook th:nth-child(3),
+    #korBook td:nth-child(3) 
+    {
+      width: 80px;
+}<link rel="stylesheet" href="../css/list.css"> 
+.fixed-image {
+	width: 150px;  원하는 너비로 설정 
+	height: 200px;  원하는 높이로 설정 
+}*/
+.btntop {
+	padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    font-weight: 500;
+    text-align: center;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+    color: #595959;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    content: "";
+    display: block;
+    width: 9px;
+    height: 5px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 9px 5px;
+    margin: 0 auto 1px;
+}
+.pagestr{
+    font-weight: 700;
+    border-radius: 12px;
+    min-width: 24px;
+    height: 24px;
+    padding: 5px 4px 6px 4px;
+    font-size: 20px;
+    }
+    
+#selListPer {
+  font-size: 16px; /* 옵션 글꼴 크기 설정 */
+  padding: 5px; /* 옵션 패딩 설정 */
+  border: 1px solid #ccc; /* 옵션 테두리 설정 */
+  border-radius: 5px; /* 옵션 테두리 둥글게 설정 */
+  width: 150px; /* 옵션 너비 설정 */
+  background-color: #fff; /* 옵션 배경색 설정 */
+  cursor: pointer; /* 마우스 커서 설정 */
+}
+
+/* 옵션 드롭다운 화살표 아이콘 스타일 설정 */
+#selListPer-button {
+  background-color: #fff; /* 화살표 배경색 설정 */
+  border: 1px solid #ccc; /* 화살표 테두리 설정 */
+  border-radius: 5px; /* 화살표 테두리 둥글게 설정 */
+  padding: 5px; /* 화살표 패딩 설정 */
+  cursor: pointer; /* 마우스 커서 설정 */
+}
+
+/* 옵션 드롭다운 화살표 아이콘 스타일 설정 */
+.ui-selectmenu-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 5px; /* 화살표와 옵션 사이 여백 설정 */
+}
+
+/* 옵션 드롭다운 목록 스타일 설정 */
+.ui-selectmenu-menu {
+  font-size: 16px; /* 목록 글꼴 크기 설정 */
+  border: 1px solid #ccc; /* 목록 테두리 설정 */
+  border-radius: 5px; /* 목록 테두리 둥글게 설정 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 목록 그림자 설정 */
+  background-color: #fff; /* 목록 배경색 설정 */
+}
+
+/* 옵션 드롭다운 목록 아이템 스타일 설정 */
+.ui-menu-item {
+  padding: 8px 12px; /* 목록 아이템 패딩 설정 */
+  cursor: pointer; /* 마우스 커서 설정 */
+}
+
+/* 옵션 드롭다운 목록 아이템 hover 스타일 설정 */
+.ui-menu-item:hover {
+  background-color: #f0f0f0; /* 목록 아이템 hover 배경색 설정 */
+}
+    

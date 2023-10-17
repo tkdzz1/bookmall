@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.himedia.springboot.P_addbookDAO">
+<insert id="addbook">
+	insert into product set name=#{param1}, price=#{param2},img=#{param3}, genre=#{param4},
+	author=#{param5}, prodinfo=#{param6}, created=now() ,info=#{param7},stock=#{param8}, editorreview=#{param9}
+	<!-- 이미지추가 -->
+</insert>
+</mapper>

@@ -1,0 +1,151 @@
+@charset "UTF-8";
+/* 기본 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+}
+
+.content {
+    background-color: #fff;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    width:85%;
+    float:right;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* 문의 내역 테이블 스타일 */
+.inquiry-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.inquiry-table th,
+.inquiry-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.inquiry-table th {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.inquiry-table a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+/* 문의 상태에 따른 색상 스타일링 */
+.inquiry-table td:nth-child(3) {
+    color: green; /* 답변 완료일 때 */
+}
+
+/* 홀수 행 배경색 변경 */
+.inquiry-table tbody tr:nth-child(odd) {
+    background-color: #f5f5f5;
+}
+/* 모달 스타일 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    max-width: 80%;
+}
+
+.close {
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* 모달 내용 스타일 */
+h2 {
+    font-size: 20px;
+}
+
+#answer-content {
+    font-size: 14px;
+}
+#inquiry-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    position: absolute; /* 추가 */
+    top: 10px; /* 하단 여백 조절 */
+    right: 10px; /* 우측 여백 조절 */
+    transition: background-color 0.3s;
+}
+
+#inquiry-button:hover {
+    background-color: #0056b3;
+}
+a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.options {
+    margin-top: 20px;
+}
+
+.option {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.pageTable{
+	border: solid white;
+	margin-top:20px;
+	margin-left:auto; 
+	margin-right:auto;
+}
+.pageTable tr td{
+	text-align: center;
+}

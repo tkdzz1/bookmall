@@ -1,0 +1,130 @@
+@charset "UTF-8";
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; /*수정(9/4)*/
+}
+
+.content {
+    background-color: #fff;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width:85%;
+    float:right;
+}
+
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 글 내용 스타일 */
+#post-content {
+    border: 1px solid #333;
+    padding: 35px;
+}
+
+h2 {
+    margin: 0;
+}
+
+p {
+    margin: 5px 0;
+}
+
+div {
+    /*border-top: 1px solid #ccc;*/
+}
+
+/* 링크 스타일 */
+a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    
+}
+
+a:hover {
+    text-decoration: underline;
+}
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    margin-top: 20px;
+}
+#view label{
+    padding-top: 10px;
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 20px;
+}
+textarea{
+	width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    height: 50px;
+    border: 1px solid white;
+    resize: none;
+}
+#view table{
+	font-size: small;
+	margin-left:auto;
+	margin-right:auto;
+}
+#commentBox {
+	width: 80%;
+	padding: 10px;
+	border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 10px;
+}
+#sendComment {
+    padding: 5px 10px;
+    font-size: 12px;
+    background-color: #007bff; /* 버튼 배경색 */
+    color: #fff; /* 텍스트 색상 */
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    display:none;
+    float: right
+}
+.options {
+    margin-top: 20px;
+}
+
+.option {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.pageTable{
+	border: solid white;
+	margin-top:20px;
+	margin-left:auto; 
+	margin-right:auto;
+}
+.pageTable tr td{
+	text-align: center;
+}
+
+   

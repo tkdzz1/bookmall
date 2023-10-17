@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.himedia.springboot.mallDAO">
+<insert id="insert">
+	insert into member set userid=#{param1}, password=#{param2}, name=#{param3},
+		gender=#{param4},birthday=#{param5}, mobile=#{param6},email=#{param7},address=#{param8},address_detail=#{param9},created=now()
+</insert>
+<select id="select" resultType="int">
+	select count(*) from member where userid=#{param1} and password=#{param2}
+</select>
+<select id="dosearch" resultType="com.himedia.springboot.mallDTO">
+	SELECT a.seq, a.genre, a.name, a.price, a.img, a.author, a.prodinfo,DATE_FORMAT(a.created, '%Y/%m/%d') as created ,a.stock, a.info,COUNT(b.seq) as reviewCount, AVG(b.score) as averageRating FROM product a left outer join review b on a.seq=b.prodid WHERE name LIKE CONCAT('%',#{param1},'%' ) group by seq ORDER BY seq LIMIT #{param2}, #{param3};
+</select>
+<select id="getsearchTotal" resultType="int">
+	SELECT count(*) FROM product WHERE name LIKE CONCAT('%',"메리",'%' )
+</select>
+<select id="getAll" resultType="com.himedia.springboot.mallDTO">
+SELECT a.seq, a.genre, a.name, a.price, a.img, a.author, a.prodinfo,DATE_FORMAT(a.created, '%Y/%m/%d') as created ,a.stock, a.info,COUNT(b.seq) as reviewCount, AVG(b.score) as averageRating FROM product a left outer join review b on a.seq=b.prodid group by seq order by seq desc limit #{param1},#{param2}
+</select>
+<select id="getNovel" resultType="com.himedia.springboot.mallDTO">
+SELECT a.seq, a.genre, a.name, a.price, a.img, a.author, a.prodinfo,DATE_FORMAT(a.created, '%Y/%m/%d') as created ,a.stock, a.info,COUNT(b.seq) as reviewCount, AVG(b.score) as averageRating FROM product a left outer join review b on a.seq=b.prodid where genre="소설" group by seq order by seq desc limit #{param1},#{param2}
+</select>
+<select id="getHistory" resultType="com.himedia.springboot.mallDTO">
+SELECT a.seq, a.genre, a.name, a.price, a.img, a.author, a.prodinfo,DATE_FORMAT(a.created, '%Y/%m/%d') as created ,a.stock, a.info,COUNT(b.seq) as reviewCount, AVG(b.score) as averageRating FROM product a left outer join review b on a.seq=b.prodid where genre="역사"group by seq order by seq desc limit #{param1},#{param2}
+</select>
+<select id="getConomy" resultType="com.himedia.springboot.mallDTO">
+SELECT a.seq, a.genre, a.name, a.price, a.img, a.author, a.prodinfo,DATE_FORMAT(a.created, '%Y/%m/%d') as created ,a.stock, a.info,COUNT(b.seq) as reviewCount, AVG(b.score) as averageRating FROM product a left outer join review b on a.seq=b.prodid where genre="경제/경영"group by seq order by seq desc limit #{param1},#{param2}
+</select>
+<select id="getPolitics" resultType="com.himedia.springboot.mallDTO">
+SELECT a.seq, a.genre, a.name, a.price, a.img, a.author, a.prodinfo,DATE_FORMAT(a.created, '%Y/%m/%d') as created ,a.stock, a.info,COUNT(b.seq) as reviewCount, AVG(b.score) as averageRating FROM product a left outer join review b on a.seq=b.prodid where genre="정치" group by seq order by seq desc limit #{param1},#{param2}
+</select>
+<select id="getComic" resultType="com.himedia.springboot.mallDTO">
+SELECT a.seq, a.genre, a.name, a.price, a.img, a.author, a.prodinfo,DATE_FORMAT(a.created, '%Y/%m/%d') as created ,a.stock, a.info,COUNT(b.seq) as reviewCount, AVG(b.score) as averageRating FROM product a left outer join review b on a.seq=b.prodid where genre="만화" group by seq order by seq desc limit #{param1},#{param2}
+</select>
+<select id="getTotal" resultType="int">
+	select count(*) from product
+</select>
+<select id="getnovelTotal" resultType="int">
+	select count(*) from product where genre="소설"
+</select>
+<select id="gethistoryTotal" resultType="int">
+	select count(*) from product where genre="역사"
+</select>
+<select id="geteconomyTotal" resultType="int">
+	select count(*) from product where genre="경제/경영"
+</select>
+<select id="getpoliticsTotal" resultType="int">
+	select count(*) from product where genre="정치"
+</select>
+<select id="getcomicTotal" resultType="int">
+	select count(*) from product where genre="만화"
+</select>
+<select id="bselect" resultType="com.himedia.springboot.mallDTO">
+	select seq,genre,name,price,img,author,prodinfo,stock, info, editorreview from product where seq=#{param1}
+</select>
+
+<select id="orders">
+	select seq,name,author,price,img from product where seq=#{param1}
+</select>
+<insert id="paymentinsert">
+	insert into orders set userid=#{param1}, prodid=#{param2},prodname=#{param3}, mobile=#{param4}, qty=#{param5}, sum=#{param6}, address=#{param7}, address_detail=#{param8}, email=#{param9}, created=now()
+</insert>
+<insert id="addbookinsert">
+	insert into product set name=#{param1}, price=#{param2}, genre=#{param3},
+		img=#{param4}, author=#{param5}, prodinfo=#{param6}
+</insert>
+<update id="hitup">
+	update product set hit=hit+1 where seq=#{param1}
+</update>
+<select id="selectCart">
+select b.prodid, b.seq, a.name, a.price as price, a.img, a.genre, a.author
+    from product a inner join cart b on a.seq = b.prodid where userid=#{param1};
+</select>
+<insert id="addcart">
+	insert into cart set userid=#{param1}, prodid=#{param2}
+</insert>
+<select id="count" resultType="int">
+	select count(*) from cart where userid=#{param1}
+</select>
+<select id="totalsum" resultType="int">
+select sum(a.price) as total from product a inner join cart b on a.seq = b.prodid;
+</select>
+    <!-- 다른 쿼리들... -->
+<select id="countcart" resultType="int">
+	select count(*) from cart where userid=#{param1};
+</select>
+<delete id="deletecart">
+	DELETE FROM cart where userid=#{param1} and prodid=#{param2}
+</delete>
+<select id="admin" resultType="java.lang.Integer">
+	SELECT ADMIN FROM MEMBER WHERE userid=#{param1} AND PASSWORD=#{param2}
+</select>
+<insert id="cntcart">
+	insert into cntcart set cnt=cnt+1 where userid=#{param1}
+</insert>
+<delete id="deletetb">
+	DELETE FROM product WHERE seq=#{param1};
+</delete>
+<select id="getlist" resultType="com.himedia.springboot.mallDTO">
+	select seq,genre,name, price,img,author,prodinfo, stock from product
+</select>
+<select id="popular" resultType="com.himedia.springboot.mallDTO">
+SELECT a.seq, a.genre, a.name, a.price, a.img, a.author, a.prodinfo, a.stock,DATE_FORMAT(a.created, '%Y/%m/%d') as created, a.info, COUNT(b.seq) as reviewCount, AVG(b.score) as averageRating
+FROM product a
+LEFT OUTER JOIN review b ON a.seq = b.prodid
+where genre=#{param3}
+GROUP BY a.seq
+ORDER BY hit DESC LIMIT #{param1}, #{param2};
+</select>
+<select id="sales" resultType="com.himedia.springboot.mallDTO">
+SELECT a.seq, a.genre, a.name, a.price, a.img, a.author, a.prodinfo, DATE_FORMAT(a.created, '%Y/%m/%d') as created, a.info, total_qty, reviewCount, averageRating
+FROM product a
+LEFT OUTER JOIN (
+    SELECT b.prodid, SUM(b.qty) as total_qty
+    FROM orders b
+    GROUP BY b.prodid
+) orders_subquery ON a.seq = orders_subquery.prodid
+LEFT OUTER JOIN (
+    SELECT c.prodid, COUNT(c.seq) as reviewCount, AVG(c.score) as averageRating
+    FROM review c
+    GROUP BY c.prodid
+) review_subquery ON a.seq = review_subquery.prodid
+where genre=#{param3}
+GROUP BY a.seq, a.genre, a.name, a.price, a.img, a.author, a.prodinfo, created, a.info, total_qty, reviewCount, averageRating;
+
+</select>
+<select id="newest" resultType="com.himedia.springboot.mallDTO">
+SELECT a.seq, a.genre, a.name, a.price, a.img, a.author, a.prodinfo, a.stock,DATE_FORMAT(a.created, '%Y/%m/%d') as created, a.info, COUNT(b.seq) as reviewCount, AVG(b.score) as averageRating
+FROM product a
+LEFT OUTER JOIN review b ON a.seq = b.prodid
+where genre=#{param3}
+GROUP BY a.seq
+ORDER BY seq desc LIMIT #{param1}, #{param2};
+</select>
+<select id="highprice" resultType="com.himedia.springboot.mallDTO">
+SELECT a.seq, a.genre, a.name, a.price, a.img, a.author, a.prodinfo, a.stock,DATE_FORMAT(a.created, '%Y/%m/%d') as created, a.info, COUNT(b.seq) as reviewCount, AVG(b.score) as averageRating
+FROM product a
+LEFT OUTER JOIN review b ON a.seq = b.prodid
+where genre=#{param3}
+GROUP BY a.seq
+ORDER BY price desc LIMIT #{param1}, #{param2};
+</select>
+<select id="lowprice" resultType="com.himedia.springboot.mallDTO">
+
+SELECT a.seq, a.genre, a.name, a.price, a.img, a.author, a.prodinfo, a.stock,DATE_FORMAT(a.created, '%Y/%m/%d') as created, a.info, COUNT(b.seq) as reviewCount, AVG(b.score) as averageRating
+FROM product a
+LEFT OUTER JOIN review b ON a.seq = b.prodid
+where genre=#{param3}
+GROUP BY a.seq
+ORDER BY price asc LIMIT #{param1}, #{param2};
+</select>
+<update id="stock">
+	update product set stock=stock-#{param2} where seq=#{param1}
+</update>
+<select id="getOrderList" resultType="com.himedia.springboot.orderDTO" >
+	select seq, userid, prodid, prodname, mobile, qty, sum, created FROM orders WHERE userid=#{param1} ORDER BY seq DESC LIMIT #{param2}, #{param3};
+</select>
+<select id="ordercnt" resultType="int">
+	select count(*) from orders where userid=#{param1}
+</select>
+<insert id="addReview">
+	insert into review set prodid=#{param1}, userid=#{param2}, comment=#{param3}, score=#{param4}
+</insert>
+<select id="getreview" resultType="com.himedia.springboot.reviewDTO">
+	SELECT seq, prodid, userid, comment, score FROM review where prodid=#{param1}
+</select>
+<delete id="deletereview">
+	delete from review where seq=#{param1}
+</delete>
+<update id="reviewupdate">
+	update review set comment=#{param1} where seq=#{param2} and prodid=#{param3}
+</update>
+<select id="getBestSeller" resultType="com.himedia.springboot.mallDTO">
+SELECT a.seq, a.name, a.price, a.genre, a.author, a.img, a.prodinfo, a.hit, DATE_FORMAT(a.created, '%Y/%m/%d') as created, a.stock, a.info, a.editorreview,
+       IFNULL(total_qty, 0) AS total_qty, IFNULL(reviewCount, 0) AS reviewCount, IFNULL(averageRating, 0) AS averageRating
+FROM product a
+LEFT JOIN (
+    SELECT b.prodid, SUM(b.qty) AS total_qty
+    FROM orders b
+    GROUP BY b.prodid
+) orders_subquery ON a.seq = orders_subquery.prodid
+LEFT JOIN (
+    SELECT c.prodid, COUNT(c.seq) AS reviewCount, AVG(c.score) AS averageRating
+    FROM review c
+    GROUP BY c.prodid
+) review_subquery ON a.seq = review_subquery.prodid
+GROUP BY a.seq, a.name, a.price, a.genre, a.author, a.img, a.prodinfo, a.hit, a.created, a.stock, a.info, a.editorreview
+HAVING IFNULL(total_qty, 0) > 30
+LIMIT #{param1}, #{param2}
+
+</select>
+<select id="getBestSellerTotal" resultType="int">
+	SELECT COUNT(*) AS total_products FROM (SELECT a.seq FROM product a INNER JOIN orders b ON a.seq = b.prodid GROUP BY a.seq HAVING SUM(b.qty) > 30) AS products_over_30; 
+</select>
+<select id="idchk" resultType="int">
+	SELECT COUNT(*) FROM MEMBER WHERE userid=#{param1};
+</select>
+<select id="findid" resultType="com.himedia.springboot.P_findidDTO">
+	SELECT userid FROM MEMBER WHERE email=#{param1} AND name=#{param2} AND birthday=#{param3};
+</select>
+<select id="findpw" resultType="com.himedia.springboot.P_findidDTO">
+	SELECT PASSWORD FROM MEMBER WHERE email=#{param1} AND userid=#{param2} AND name=#{param3} AND birthday=#{param4} ;
+</select>
+<select id="getmember" resultType="com.himedia.springboot.memberDTO">
+	select userid,name,gender,birthday,mobile,email,address,address_detail from member where userid=#{param1}
+</select>
+<select id="findorder" resultType="com.himedia.springboot.orderDTO">
+	select a.seq,a.userid,a.prodid,a.prodname,a.mobile,a.qty,a.sum,a.created,b.name,b.gender,b.birthday,b.email,b.address,b.address_detail
+from orders a inner join member b on a.userid=b.userid where a.seq=#{param1};
+</select>
+<select id="getBookHit" resultType="com.himedia.springboot.mallDTO">
+	select seq, name, price, genre, img, author, prodinfo, hit, stock, info, editorreview from product order by hit desc limit 0,4
+</select>
+<select id="getBookBestSeller" resultType="com.himedia.springboot.mallDTO">
+	SELECT a.seq,a.name,a.price,a.genre,a.author, a.img, a.prodinfo, a.hit, a.created,a.stock,a.info,a.editorreview, SUM(b.qty) FROM product a INNER JOIN orders b ON a.seq=b.prodid GROUP BY a.seq ORDER BY SUM(b.qty) DESC LIMIT 0,4;
+</select>
+<select id="getBookNew" resultType="com.himedia.springboot.mallDTO">
+	SELECT * FROM product ORDER BY created DESC LIMIT 0,4;
+</select>
+<select id="selectid" resultType="com.himedia.springboot.mallDTO">
+SELECT seq,name,img
+FROM product
+ORDER BY RAND()
+LIMIT 2;
+</select>
+<select id="popular2" resultType="com.himedia.springboot.mallDTO">
+SELECT a.seq, a.genre, a.name, a.price, a.img, a.author, a.prodinfo, a.stock,DATE_FORMAT(a.created, '%Y/%m/%d') as created, a.info, COUNT(b.seq) as reviewCount, AVG(b.score) as averageRating
+FROM product a
+LEFT OUTER JOIN review b ON a.seq = b.prodid
+GROUP BY a.seq
+ORDER BY hit DESC LIMIT #{param1}, #{param2};
+</select>
+<select id="sales2" resultType="com.himedia.springboot.mallDTO">
+SELECT a.seq, a.genre, a.name, a.price, a.img, a.author, a.prodinfo, DATE_FORMAT(a.created, '%Y/%m/%d') as created, a.info, total_qty, reviewCount, averageRating
+FROM product a
+LEFT OUTER JOIN (
+    SELECT b.prodid, SUM(b.qty) as total_qty
+    FROM orders b
+    GROUP BY b.prodid
+) orders_subquery ON a.seq = orders_subquery.prodid
+LEFT OUTER JOIN (
+    SELECT c.prodid, COUNT(c.seq) as reviewCount, AVG(c.score) as averageRating
+    FROM review c
+    GROUP BY c.prodid
+) review_subquery ON a.seq = review_subquery.prodid
+GROUP BY a.seq, a.genre, a.name, a.price, a.img, a.author, a.prodinfo, created, a.info, total_qty, reviewCount, averageRating;
+
+</select>
+<select id="newest2" resultType="com.himedia.springboot.mallDTO">
+SELECT a.seq, a.genre, a.name, a.price, a.img, a.author, a.prodinfo, a.stock,DATE_FORMAT(a.created, '%Y/%m/%d') as created, a.info, COUNT(b.seq) as reviewCount, AVG(b.score) as averageRating
+FROM product a
+LEFT OUTER JOIN review b ON a.seq = b.prodid
+GROUP BY a.seq
+ORDER BY seq desc LIMIT #{param1}, #{param2};
+</select>
+<select id="highprice2" resultType="com.himedia.springboot.mallDTO">
+SELECT a.seq, a.genre, a.name, a.price, a.img, a.author, a.prodinfo, a.stock,DATE_FORMAT(a.created, '%Y/%m/%d') as created, a.info, COUNT(b.seq) as reviewCount, AVG(b.score) as averageRating
+FROM product a
+LEFT OUTER JOIN review b ON a.seq = b.prodid
+GROUP BY a.seq
+ORDER BY price desc LIMIT #{param1}, #{param2};
+</select>
+<select id="lowprice2" resultType="com.himedia.springboot.mallDTO">
+
+SELECT a.seq, a.genre, a.name, a.price, a.img, a.author, a.prodinfo, a.stock,DATE_FORMAT(a.created, '%Y/%m/%d') as created, a.info, COUNT(b.seq) as reviewCount, AVG(b.score) as averageRating
+FROM product a
+LEFT OUTER JOIN review b ON a.seq = b.prodid
+GROUP BY a.seq
+ORDER BY price asc LIMIT #{param1}, #{param2};
+</select>
+</mapper>

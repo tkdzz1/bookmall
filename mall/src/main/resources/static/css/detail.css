@@ -1,0 +1,372 @@
+/* styles.css */
+form {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+   	background-color: #fff;
+}
+
+.product-container {
+    display: flex;
+    margin: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.product-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-details {
+    padding: 20px;
+    line-height: 2.0;
+}
+
+.product-details h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.description {
+    font-size: 30px;
+}
+
+.price {
+    font-size: 20px;
+    color: #e74c3c;
+    margin: 10px 0;
+}
+
+.stock, .manufacturer {
+    font-size: 20px;
+}
+
+.specs {
+    list-style-type: none;
+    padding: 0;
+}
+
+.specs li {
+    font-size: 14px;
+}
+
+.customer-reviews {
+    background-color: #fff;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.customer-reviews h2 {
+    font-size: 20px;
+}
+
+.buy-now {
+    text-align: center;
+    margin: 20px;
+}
+
+.buy-now input {
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: green;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.content {
+	font-size: 16px;
+}
+.product-info-label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #333;
+}
+.center-image {
+    text-align: center; /* 이미지를 수평으로 가운데 정렬합니다. */
+}
+
+.center-image img {
+    display: inline-block; /* 이미지를 블록 요소로 표시하여 가운데 정렬에 적합하게 합니다. */
+    margin: 0 auto; /* 가로 방향 가운데 정렬을 수행합니다. */
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* 화면 상단 정렬을 위해 수정 */
+    min-height: 100vh; /* 화면 전체 높이를 채우도록 설정 */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 상품 정보 스타일 */
+
+.product-container {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center; /* 텍스트 가운데 정렬 */
+    max-width: 800px; /* 원하는 최대 너비 설정 */
+    margin: 20px auto 0; /* 화면 상단에 위치 */
+}
+
+.product-details p {
+    margin: 0;
+}
+
+
+.product-details a:hover {
+    text-decoration: underline;
+}
+
+/* 수정된 부분: "product-info-label"을 화면 아래로 위치시키기 위해 아래 스타일 추가 */
+
+.product-info-label {
+    max-width: 100%; /* 원하는 최대 너비 설정 */
+    margin: 20px auto; /* 화면 중앙에 위치 */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+.product-info-label h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.product-info-label {
+    white-space: pre;
+}
+
+.product-info-label img {
+    max-width: 100%;
+    height: auto;
+}
+.tab-content {
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+}
+
+
+/* 리뷰 스타일 */
+.tab-content{
+	max-width: 1100px;
+	width: 1100px;
+}
+.customer-reviews {
+ 	width: 1500px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.customer-reviews h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.review-section .review {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.review-section .review h3 {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.review-section .review p {
+    margin: 0;
+}
+
+/* 댓글 폼 스타일 */
+
+#comment-form {
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+.rating .rate_radio + label {
+    position: relative;
+    display: inline-block;
+    margin-left: -4px;
+    z-index: 10;
+    width: 60px;
+    height: 60px;
+    background-image: url('./img/starrate.png');
+    background-repeat: no-repeat;
+    background-size: 60px 60px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+}
+.rating .rate_radio:checked + label {
+    background-color: #ff8;
+}
+.wrap{
+    max-width: 480px;
+    margin: 0 auto; /* 화면 가운데로 */
+    background-color: #fff;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+
+}
+.reviewform textarea{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.rating .rate_radio {
+    position: relative;
+    display: inline-block;
+    z-index: 20;
+    opacity: 0.001;
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    cursor: pointer;
+    vertical-align: top;
+    display: none;
+}
+.rating .rate_radio + label {
+    position: relative;
+    display: inline-block;
+    margin-left: -4px;
+    z-index: 10;
+    width: 60px;
+    height: 60px;
+    background-image: url('../img/starrate.png');
+    background-repeat: no-repeat;
+    background-size: 60px 60px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+}
+.rating .rate_radio:checked + label {
+    background-color: #ff8;
+}
+
+.warning_msg {
+    display: none;
+    position: relative;
+    text-align: center;
+    background: #ffffff;
+    line-height: 26px;
+    width: 100%;
+    color: red;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #e0e0e0;
+}
+.star{
+	background-color: #ff8;
+}
+body{
+  margin-top: 100px;
+  font-family: 'Trebuchet MS', serif;
+  line-height: 1.6
+}
+
+.container{
+  width:auto;
+  margin: 0 auto;
+}
+
+ul.tabs{
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  text-align: left;
+}
+ul.tabs li{
+  background: none;
+  color: #222;
+  display: inline-block;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+ul.tabs li.current{
+  background: #ededed;
+  color: #222;
+}
+
+.tab-content{
+  display: none;
+  background: #ededed;
+  padding: 15px;
+}
+
+.tab-content.current{
+  display: inherit;
+}
+.mainIMG {
+	width: 458px;
+	height: 715px;
+}
+.btnbuy {
+    color: #fff;
+    background: #5055b1;
+    border: 1px solid #5055b1;
+    transition: background-color 0.2s ease-out, border-color 0.2s ease-out;
+}
+.list {
+	width: 70px;
+	height: 25px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    margin-top: 20px;
+    
+}

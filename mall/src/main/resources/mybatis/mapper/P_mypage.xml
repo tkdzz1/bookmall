@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.himedia.springboot.P_mypageDAO">
+<select id="getmyInfo" resultType="com.himedia.springboot.P_mypageDTO">
+	SELECT userid,name,gender,birthday,mobile,created,email,address,address_detail FROM MEMBER where userid=#{param1}
+</select>
+
+<select id="oldpw" resultType="com.himedia.springboot.P_pwDTO">
+	SELECT password FROM MEMBER where userid=#{param1}
+</select>
+
+<update id="updatemyinfo">
+	UPDATE MEMBER SET mobile=#{param2},email=#{param3},address=#{param4},address_detail=#{param5} WHERE userid = #{param1};
+</update>
+<update id="updatepw">
+	UPDATE MEMBER SET password=#{param2} WHERE userid = #{param1};
+</update>
+</mapper>

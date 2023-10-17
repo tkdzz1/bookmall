@@ -1,0 +1,40 @@
+ 
+body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f2f2f2;
+    }
+nav {
+    background-color: #555;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 15px;
+}
+nav a:hover {
+    background-color: #444;
+}
+h1 {
+    text-align: center;
+    margin-top: 30px;
+}
+#tblbook {
+    border-collapse: collapse;
+    width: 1000px;
+    margin: 20px auto;
+}
+#tblbook th {
+    background-color: #228B22;
+    color: white;
+    border: 1px solid red;
+    padding: 10px;
+}
+#tblbook td {
+    border: 1px solid black;
+    padding: 5px;
+}

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+				 "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.himedia.springboot.G_DAO">
+<select id="g_getBoard" resultType="com.himedia.springboot.g_boardDTO">
+	select num,userid,seq,title,content,hit,created,updated from g_board order by num desc limit #{param1}, #{param2}
+</select>
+<insert id="boardInsert">
+	insert into g_board set userid=#{param2}, seq=3, title=#{param1}, content=#{param3}, created=now(), updated=now(), g_img=#{param4}
+</insert>
+<select id="findBoard" resultType="com.himedia.springboot.g_boardDTO">
+	select num,userid,seq,title,content,hit,created,updated,g_img from g_board where num=#{param1}
+</select>
+<delete id="g_delete">
+	delete from g_board where num=#{param1}
+</delete>
+<update id="boardUpdate">
+	update g_board set title=#{param2}, content=#{param3}, updated=now(), g_img=#{param4} where num=#{param1}
+</update>
+<update id="g_hitup">
+	update g_board set hit=hit+1 where num=#{param1}
+</update>
+<select id="findComment" resultType="com.himedia.springboot.g_commentDTO">
+	select userid, b_num, c_num, comment, updated from g_comment where recommentid = 0 and b_num=#{param1} limit #{param2}, #{param3}
+</select>
+<insert id="insertComment">
+	insert into g_comment set userid=#{param1}, b_num=#{param2}, comment=#{param3}, updated=now()
+</insert>
+<delete id="g_commentDelete">
+	delete from g_comment where c_num=#{param1}	
+</delete>
+<select id="g_getTotal" resultType="int">
+	select count(*) from g_board
+</select>
+<select id="g_getFAQ" resultType="com.himedia.springboot.g_faqDTO">
+	select num, title, content from g_faq;
+</select>
+<update id="g_updateFAQ">
+	update g_faq set title=#{param2}, content=#{param3} where num=#{param1}
+</update>
+<insert id="g_insertFAQ">
+	insert into g_faq set title=#{param1}, content=#{param2}
+</insert>
+<delete id="g_deleteFAQ">
+	delete from g_faq where num=#{param1}
+</delete>
+<select id="g_getQuestion" resultType="com.himedia.springboot.g_questionDTO">
+	select num,userid,title,content,progress,created,answer,private from g_question order by num desc limit #{param1}, #{param2}
+</select>
+<select id="g_getQuestionClient" resultType="com.himedia.springboot.g_questionDTO">
+	select num,userid,title,content,progress,created,answer,private from g_question where private=0 or userid=#{param1} order by num desc limit #{param2}, #{param3}
+</select>
+<select id="g_reply" resultType="com.himedia.springboot.g_questionDTO">
+	select num,userid,title,content,progress,created,answer,private from g_question where num=#{param1}
+</select>
+<update id="g_insertAnswer">
+	update g_question set progress="답변 완료", answer=#{param2} where num=#{param1}
+</update>
+<insert id="g_insertQuestion">
+	insert into g_question set userid=#{param1}, title=#{param2}, content=#{param3}, created=now(), private=#{param4}
+</insert>
+<select id="g_getCommentTotal" resultType="int">
+	select count(*) from g_comment where b_num=#{param1}
+</select>
+<select id="g_getQnaTotal" resultType="int">
+	select count(*) from g_question
+</select>
+<select id="g_getQnaTotalClient" resultType="int">
+	select count(*) from g_question where userid=#{param1}
+</select>
+<insert id="insertrecomment" >
+	insert into g_comment set userid=#{param1}, b_num=#{param2},comment=#{param3}, recommentid=#{param4}, updated=now()
+</insert>
+<select id="recomment">
+	SELECT b.userid, b.b_num, b.c_num, b.comment, b.recommentid
+	FROM g_comment a
+	INNER JOIN g_comment b ON a.c_num = b.recommentid
+	WHERE a.c_num = #{param1};
+</select>
+</mapper>
